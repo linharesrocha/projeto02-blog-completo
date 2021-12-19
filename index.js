@@ -32,7 +32,11 @@ app.use("/", ArticlesController);
 
 app.get("/", (req, res) => {
 
-    Article.findAll().then(articles => {
+    Article.findAll({
+        order: [
+            ['id', 'DESC']
+        ]
+    }).then(articles => {
         res.render("index", {articles: articles});
     });
 });
