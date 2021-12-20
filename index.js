@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-const session = require("express-session")
 const connection = require("./database/database");
+const session = require("express-session")
 
 const CategoriesController = require("./categories/CategoriesController");
 const ArticlesController = require("./articles/ArticlesController");
@@ -41,6 +41,14 @@ connection.authenticate().then(() => {
 app.use("/", CategoriesController);
 app.use("/", ArticlesController);
 app.use("/", usersController);
+
+app.get("/session", (req, res) => {
+    
+});
+
+app.get("/leitura", (req, res) => {
+
+})
 
 
 app.get("/", (req, res) => {
